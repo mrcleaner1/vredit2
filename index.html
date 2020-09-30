@@ -1,0 +1,292 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Project 1: inside out vr</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+   <script src="libs/aframe-extras.min.js"></script>
+
+</head>
+<body>
+
+
+
+<a-scene>
+    <a-assets>
+      <!-- IMPORTED ASSETS or Variables-->
+        <audio id="blip1" src="assets/horned_owl.wav"></audio>
+    
+	<a-asset-item id="drone" src="assets/busterDrone.gltf"> </a-asset-item>
+	
+	<a-asset-item id="toilet" src = "assets/models/toilet.gltf"></a-asset-item>
+
+	<a-asset-item id = "Nswitch" src = "assets/models/switch/switch.gltf"></a-asset-item>
+
+	<a-asset-item id = "washdry" src = "assets/models/washer_dryer.gltf"></a-asset-item>
+
+	<a-asset-item id = "laptop" src = "assets/models/Laptop_01.gltf"></a-asset-item>
+
+	<a-asset-item id = "office_chair" src = "assets/models/office_chair/model.gltf"></a-asset-item>
+
+	<a-asset-item id = "couch" src = "assets/models/couch/model.gltf"></a-asset-item>
+
+
+
+
+
+     </a-assets>
+	 
+	 
+	<!-- sky stuff -->
+	
+    <a-sky color="#cce6ff"></a-sky>
+	
+	
+	<!-- camera position start? -->
+	
+   <a-entity id="rig"
+          movement-controls="
+		  speed : .8;
+          position :0 0 0">
+  <a-entity camera
+            position="0 4 0"
+            look-controls="pointerLockEnabled: true">
+			<a-entity raycaster="far: 150; objects: .intersectable" cursor geometry="primitive: ring; radiusOuter: 0.015;
+                              radiusInner: 0.01; segmentsTheta: 32" material="color: #283644; shader: flat" position="0 0 -0.75"></a-entity>
+			</a-entity>
+			
+			
+</a-entity>
+
+<a-entity id="box" cursor-listener geometry="primitive: box" material="color: blue">
+</a-entity>
+
+<!--
+
+        <a-camera universal-controls>
+            <a-entity raycaster="far: 150; objects: .intersectable" cursor geometry="primitive: ring; radiusOuter: 0.015;
+                              radiusInner: 0.01; segmentsTheta: 32" material="color: #283644; shader: flat" position="0 0 -0.75"></a-entity>
+        </a-camera>
+
+        </a-entity>
+    -->
+	
+	<!--imported 3d models -->
+
+    <a-gltf-model src="#drone" position="0 5 0" animation-mixer></a-gltf-model>
+<a-gltf-model src="#washdry" position="13.5218 -0.92154 1.79817" id="washdry" gltf-model="assets/models/washer_dryer.gltf" scale="25 20 25" rotation="-2.24 241.12 -6.23"></a-gltf-model>
+
+
+	<a-gltf-model src="#couch" position="0 5 0" ></a-gltf-model>
+		<a-gltf-model src="#laptop" position="0 5 0" ></a-gltf-model>
+
+	<a-gltf-model src="#office_chair" position="0 5 0" ></a-gltf-model>
+
+	<a-gltf-model src="#NA" position="0 5 0" ></a-gltf-model>
+
+<a-gltf-model src="#toilet" position="8.58414 -1.01 -2.81675" scale="2.5 2.5 2.5" gltf-model="assets/models/toilet.gltf" rotation="0 90 0" id="toilet"></a-gltf-model>
+<a-gltf-model src="#Nswitch" position="30.47332 0.68579 22.42386" scale="1.3 1.3 1.3" gltf-model="assets/models/switch/switch.gltf" rotation="0 41.73 0" id="Nswitch"></a-gltf-model>
+
+
+    <a-box color="tomato" position="45 0 6" depth="2" height="2" width="2" class="intersectable">
+       <a-animation begin="click" attribute="position" from="45 0 6" to= "45 0 -10" dur="3000"></a-animation>
+
+    </a-box>
+
+
+    <a-box material="color:tomato;transparent:true;opacity:0" depth="2" height="2" width="2" sound="src: url(assets/horned_owl.wav); on: click" class="intersectable" position="55 1.5 6"></a-box>
+    <a-obj-model src="assets/AngryBirdsRedsMask.obj" mtl="assets/AngryBirdsRedsMask.mtl" position="55 1.5 6"></a-obj-model>
+    <a-entity collada-model="url(assets/stormtrooper.dae)" rotation="90 0 0" position="60 0 6" ></a-entity>
+
+<!--light-->
+  
+ <a-entity light="type: ambient; color: #BBB"></a-entity> -->
+  
+<!--
+  <a-light type="ambient" color="#FFF" intensity=".001" light=""></a-light>
+
+<!--
+  <a-light type="ambient" color="  #404040" intensity="1" light=""></a-light>
+
+-->
+
+<!-- example stuff
+          <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+  -->
+
+  
+
+
+     <!-- Ceiling -->
+	
+<a-entity static-body="" geometry="depth: 50; height: 0.5; width: 160" position="21.88 7.88 8.65" material="src: assets/Plaster001_2K_Color.jpg; repeat: 15 8" scale="0.55 1 1.92" id="ceiling" visible=""></a-entity>
+    <!-- Floor -->
+<a-entity static-body="" geometry="depth: 50; height: 0.5; width: 160" position="21.88 -0.5 8.65" material="src: assets/WoodFloor007_2K_Color.jpg; repeat: 15 8" scale="0.55 1 1.92" id="floor"></a-entity>
+
+	<!-- Grass -->
+<a-entity static-body geometry="primitive: box; depth: 500; height: 0.1; width: 500" position="0 -0.51 5" material="shader: flat; side: double; opacity: 1;
+src: url(assets/grass08 diffuse 1k.jpg); repeat: 80 80; "></a-entity>
+
+<!-- garage floor -->
+<a-plane position="2.69 -0.24 33.11" rotation="-90 90 0" height="7" material="src: assets/Concrete017_2K_Color.jpg; repeat: 5 5;" geometry="" scale="46.09 7.08 2"></a-plane>
+
+<!-- outer walls -->
+<a-entity static-body="" geometry="height: 14; width: 160" position="21.902 0.65 -39.15" rotation="" material="src: assets/Plaster001_2K_Color.jpg" scale="0.55 1 0.5" id="outer_wall"></a-entity>
+<a-entity static-body="" geometry="height: 14; width: 160" position="-21.988 0.65 8.5" rotation="0 90 0" material="src: assets/Plaster001_2K_Color.jpg" scale="0.6 1 0.5" id="outer_wall-2"></a-entity>
+<a-entity static-body="" geometry="height: 14; width: 160" position="21.902 0.65 56.32" rotation="" material="src: assets/Plaster001_2K_Color.jpg" scale="0.55 1 0.5" id="outer_wall-3"></a-entity>
+<a-entity static-body="" geometry="height: 14; width: 160" position="65.79 0.65 8.5" rotation="0 90 0" material="src: assets/Plaster001_2K_Color.jpg" scale="0.6 1 0.5" id="outer_wall-4"></a-entity>
+
+<!-- inner walls -->
+<a-entity static-body="" geometry="height: 14; width: 160" position="-0.44298 0.65 2.6" rotation="" material="src: assets/Plaster001_2K_Color.jpg" scale="0.03 1 0.5" id="inside_wall-26"></a-entity>
+<a-entity static-body="" geometry="height: 14; width: 160" position="50.61247 0.65 -0.34" rotation="" material="src: assets/Plaster001_2K_Color.jpg" scale="0.19 1 0.5" id="inside_wall-25"></a-entity>
+<a-entity static-body="" geometry="height: 14; width: 160" position="50.61247 0.65 6.3" rotation="" material="src: assets/Plaster001_2K_Color.jpg" scale="0.19 1 0.5" id="inside_wall-9"></a-entity>
+<a-entity static-body="" geometry="height: 14; width: 160" position="47.44247 0.65 -12.38" rotation="" material="src: assets/Plaster001_2K_Color.jpg" scale="0.15 1 0.5" id="inside_wall-24"></a-entity>
+<a-entity static-body="" geometry="height: 14; width: 160" position="-13.9 0.65 -20" rotation="" material="src: assets/Plaster001_2K_Color.jpg" scale="0.1 1 0.5" id="inside_wall"></a-entity>
+<a-entity static-body="" geometry="height: 14; width: 160" position="3.8 0.65 -25.1" rotation="" material="src: assets/Plaster001_2K_Color.jpg" scale="0.038 1 0.5" id="inside_wall-21"></a-entity>
+<a-entity static-body="" geometry="height: 14; width: 160" position="3.45 0.65 -34.12" rotation="" material="src: assets/Plaster001_2K_Color.jpg" scale="0.038 1 0.5" id="inside_wall-22"></a-entity>
+<a-entity static-body="" geometry="height: 14; width: 160" position="5.41 0.65 -20" rotation="" material="src: assets/Plaster001_2K_Color.jpg" scale="0.08 1 0.5" id="inside_wall-2"></a-entity>
+<a-entity static-body="" geometry="height: 14; width: 160" position="35.6 0.65 -29.55" rotation="0 90 0" material="src: assets/Plaster001_2K_Color.jpg" scale="0.122 1 0.5" id="inside_wall-6"></a-entity>
+<a-entity static-body="" geometry="height: 14; width: 160" position="35.6 0.65 -3" rotation="0 90 0" material="src: assets/Plaster001_2K_Color.jpg" scale="0.12 1 0.5" id="inside_wall-10"></a-entity>
+<a-entity static-body="" geometry="height: 14; width: 160" position="6.63 0.65 -32.07" rotation="0 90 0" material="src: assets/Plaster001_2K_Color.jpg" scale="0.09 1 0.5" id="inside_wall-11"></a-entity>
+<a-entity static-body="" geometry="height: 14; width: 160" position="1.16 0.65 -4.97" rotation="0 90 0" material="src: assets/Plaster001_2K_Color.jpg" scale="0.095 1 0.5" id="inside_wall-13"></a-entity>
+<a-entity static-body="" geometry="height: 14; width: 160" position="22.01 0.65 -4.96" rotation="0 90 0" material="src: assets/Plaster001_2K_Color.jpg" scale="0.095 1 0.5" id="inside_wall-14"></a-entity>
+<a-entity static-body="" geometry="height: 14; width: 160" position="27.36 0.65 -4.96" rotation="0 90 0" material="src: assets/Plaster001_2K_Color.jpg" scale="0.097 1 0.5" id="inside_wall-19"></a-entity>
+<a-entity static-body="" geometry="height: 14; width: 160" position="4.39 0.65 -1.23" rotation="0 90 0" material="src: assets/Plaster001_2K_Color.jpg" scale="0.14 1 0.5" id="inside_wall-15"></a-entity>
+<a-entity static-body="" geometry="height: 14; width: 160" position="27.36 0.65 33.12" rotation="0 90 0" material="src: assets/Plaster001_2K_Color.jpg" scale="0.292 1 0.5" id="inside_wall-23"></a-entity>
+<a-entity static-body="" geometry="height: 14; width: 160" position="0.64 0.65 -27.14" rotation="0 90 0" material="src: assets/Plaster001_2K_Color.jpg" scale="0.09 1 0.5" id="inside_wall-12"></a-entity>
+<a-entity static-body="" geometry="height: 14; width: 160" position="26.14 0.65 -20" rotation="" material="src: assets/Plaster001_2K_Color.jpg" scale="0.121 1 0.5" id="inside_wall-5"></a-entity>
+<a-entity static-body="" geometry="height: 14; width: 160" position="-13.94 0.65 -12.5" rotation="" material="src: assets/Plaster001_2K_Color.jpg" scale="0.1 1 0.5" id="inside_wall-4"></a-entity>
+<a-entity static-body="" geometry="height: 14; width: 160" position="-12.45 0.65 2.6" rotation="" material="src: assets/Plaster001_2K_Color.jpg" scale="0.12 1 0.5" id="inside_wall-7"></a-entity>
+<a-entity static-body="" geometry="height: 14; width: 160" position="-12.4 0.65 10" rotation="" material="src: assets/Plaster001_2K_Color.jpg" scale="0.12 1 0.5" id="inside_wall-16"></a-entity>
+<a-entity static-body="" geometry="height: 14; width: 160" position="-1.7 0.65 10" rotation="" material="src: assets/Plaster001_2K_Color.jpg" scale="0.12 1 0.5" id="inside_wall-17"></a-entity>
+<a-entity static-body="" geometry="height: 14; width: 160" position="20.36 0.65 10" rotation="" material="src: assets/Plaster001_2K_Color.jpg" scale="0.09 1 0.5" id="inside_wall-18"></a-entity>
+
+<a-entity static-body="" geometry="height: 14; width: 160" position="4.93 0.65 -12.5" rotation="" material="src: assets/Plaster001_2K_Color.jpg" scale="0.08 1 0.5" id="inside_wall-3"></a-entity>
+<a-entity static-body="" geometry="height: 14; width: 160" position="21.99 0.65 -12.5" rotation="" material="src: assets/Plaster001_2K_Color.jpg" scale="0.07 1 0.5" id="inside_wall-8"></a-entity>
+<a-entity static-body="" geometry="height: 14; width: 160" position="14.28 0.65 -0.39" rotation="" material="src: assets/Plaster001_2K_Color.jpg" scale="0.16 1 0.5" id="inside_wall-20"></a-entity>
+
+
+    <!-- Walls  -->
+<!--
+<a-entity static-body="" geometry="height: 14; width: 160" position="-11.53 0.65 -41.21" rotation="" 
+material="src: assets/Plaster001_2K_Color.jpg" scale="0.6 1 1"></a-entity>
+	
+	
+	
+	
+    <a-entity static-body geometry="primitive: box; depth: 1; height: 14; width: 50" position="-80 6.5 5" rotation="0 90 0" material="
+src: url(assets/Plastera001_2K_Color.jpg) repeat 30 30;"></a-entity>
+    <a-entity static-body geometry="primitive: box; depth: 1; height: 14; width: 50" position="80 6.5 5" rotation="0 90 0" material="
+ src: url(assets/Plaster001_2K_Color.jpg) repeat 30 30;"></a-entity>
+    <a-entity static-body geometry="primitive: box; depth: 1; height: 14; width: 160" position="0 6.5 -20" rotation="0 0 0" material="
+ src: url(assets/Plaster001_2K_Color.jpg) repeat 96 30; "></a-entity>
+    <a-entity static-body geometry="primitive: box; depth: 1; height: 14; width: 160" position="0 6.5 30" rotation="0 0 0" material="
+ src: url(assets/Plaster001_2K_Color.jpg) repeat 96 30;"></a-entity>
+
+-->
+
+<!-- self-made-models using aframe geometry-->
+
+<!--table-->
+<a-entity geometry="height: 11; width: 8; segmentsHeight: 16" position="41.88974 2.1 12.29342" rotation="0 90 0" material="roughness: 1; src: assets/Wood051_2K_Color.jpg; repeat: 1 2" id="table body" scale="0.66 0.03 9.7"></a-entity>
+<a-entity geometry="primitive: cylinder; height: 11" position="38 0.7 10.6" rotation="" material="roughness: 1; src: assets/Wood051_2K_Color.jpg; repeat: 1 2" id="table leg" scale="0.12 0.24 0.12"></a-entity>
+<a-entity geometry="primitive: cylinder; height: 11" position="38 0.7 14.2" rotation="" material="roughness: 1; src: assets/Wood051_2K_Color.jpg; repeat: 1 2" id="table leg-3" scale="0.12 0.24 0.12"></a-entity>
+<a-entity geometry="primitive: cylinder; height: 11" position="45.42 0.7 14.2" rotation="" material="roughness: 1; src: assets/Wood051_2K_Color.jpg; repeat: 1 2" id="table leg-4" scale="0.12 0.24 0.12"></a-entity>
+<a-entity geometry="primitive: cylinder; height: 11" position="45.42 0.7 10.6" rotation="" material="roughness: 1; src: assets/Wood051_2K_Color.jpg; repeat: 1 2" id="table leg-2" scale="0.12 0.24 0.12"></a-entity>
+
+
+<!-- bed -->
+
+
+
+<!-- book-case-->
+
+
+<!-- leather couch -->
+
+
+
+<!-- side_end_table-->
+<a-entity geometry="height: 11; segmentsHeight: 16; primitive: cylinder" position="30.24974 1.5 22.5" rotation="0 90 0" material="roughness: 1; src: assets/Wood051_2K_Color.jpg; repeat: 1 2" id="end-table-body" scale="1.5 0.03 1.5"></a-entity>
+<a-entity geometry="height: 11; segmentsHeight: 16; primitive: cylinder" position="30.24974 0.65 22.5" rotation="0 90 0" material="roughness: 1; src: assets/Wood051_2K_Color.jpg; repeat: 1 2" id="end-table-neck" scale="0.2 0.17 0.2"></a-entity>
+<a-entity geometry="height: 11; width: 8; segmentsHeight: 16" position="30.24974 -0.23 22.5" rotation="0 90 0" material="roughness: 1; src: assets/Wood051_2K_Color.jpg; repeat: 1 2" id="end-table-bottom" scale="0.25 0.01 0.38"></a-entity>
+<a-entity geometry="height: 11; width: 8; segmentsHeight: 16" position="30.24974 -0.23 22.5" rotation="" material="roughness: 1; src: assets/Wood051_2K_Color.jpg; repeat: 1 2" id="end-table-bottom-2" scale="0.25 0.01 0.38"></a-entity>
+
+
+<!-- lamp -->
+<a-entity static-body="" geometry="primitive: cylinder; radius: 5; height: 14; segmentsRadial: 8" position="0 3 0" 
+material="src: assets/brick3.jpg; repeat: 2 2" id="lamp neck" scale="0.015 0.26 0.015"></a-entity>
+<a-entity static-body="" geometry="primitive: cone; height: 14; open-ended : true; segmentsRadial: 10; segmentsHeight: 2; radiusTop: 0.53" position="0 4.67 0" 
+material="src: assets/brick3.jpg; repeat: 2 2" id="lamp head" scale="0.75 0.06 0.75"></a-entity>
+<a-entity static-body="" geometry="primitive: cylinder; radius: 5; height: 14; segmentsRadial: 8" position="0 1.08 0" 
+material="src: assets/brick3.jpg; repeat: 2 2" id="lamp base" scale="0.2 0.02 0.2"></a-entity>
+
+<!-- chair -->
+<a-entity geometry="primitive: cylinder; height: 11" position="42.33644 0.55169 17.6461" rotation="" material="roughness: 1; src: assets/Wood051_2K_Color.jpg; repeat: 1 2" id="chair_leg" scale="0.05 0.15 0.05"></a-entity>
+<a-entity geometry="primitive: cylinder; height: 11" position="41.358 0.55169 16.76118" rotation="" material="roughness: 1; src: assets/Wood051_2K_Color.jpg; repeat: 1 2" id="chair_leg-2" scale="0.05 0.15 0.05"></a-entity>
+<a-entity geometry="primitive: cylinder; height: 11" position="41.35694 0.55169 17.61037" rotation="" material="roughness: 1; src: assets/Wood051_2K_Color.jpg; repeat: 1 2" id="chair_leg-3" scale="0.05 0.15 0.05"></a-entity>
+<a-entity geometry="primitive: cylinder; height: 11" position="42.33644 0.55169 16.76118" rotation="" material="roughness: 1; src: assets/Wood051_2K_Color.jpg; repeat: 1 2" id="chair_leg-4" scale="0.05 0.15 0.05"></a-entity>
+<a-entity geometry="primitive: cylinder; height: 11" position="42.331 1.984 17.742" rotation="10 0 0" material="roughness: 1; src: assets/Wood051_2K_Color.jpg; repeat: 1 2" id="chair_back" scale="0.05 0.12 0.05"></a-entity>
+<a-entity geometry="primitive: cylinder; height: 11" position="41.89194 2.25149 17.76209" rotation="-80.97 0 0" material="roughness: 1; src: assets/Wood051_2K_Color.jpg; repeat: 1 2" id="chair_back-3" scale="0.44 0.005 0.88"></a-entity>
+<a-entity geometry="primitive: cylinder; height: 11" position="41.45231 1.98408 17.74167" rotation="10 0 0" material="roughness: 1; src: assets/Wood051_2K_Color.jpg; repeat: 1 2" id="chair_back-2" scale="0.05 0.12 0.05"></a-entity>
+<a-entity geometry="height: 11; width: 8; segmentsHeight: 16" position="41.873 1.42106 17.2" rotation="0 90 0" material="roughness: 1; src: assets/Wood051_2K_Color.jpg; repeat: 1 2" id="chair_seat" scale="0.14 0.01 0.99"></a-entity>
+<!-- end self made-models -->
+
+	<!-- walls outside -->
+	<!--
+	 <a-entity static-body geometry="primitive: box; depth: 1; height: 14; width: 50.5" position="-80.5 6.5 5" rotation="0 90 0" material="
+src: url(assets/Bricks051_2K_Color.jpg); repeat: 5 3;"></a-entity>
+
+    <a-entity static-body geometry="primitive: box; depth: 1; height: 14; width: 50.5" position="80.5 6.5 5" rotation="0 90 0" material="
+ src: url(assets/Bricks051_2K_Color.jpg); repeat: 5 3;"></a-entity>
+
+    <a-entity static-body geometry="primitive: box; depth: 1; height: 14; width: 160" position="0 6.5 -20.5" rotation="0 0 0" material="
+src: url(assets/Bricks051_2K_Color.jpg); repeat: 18 3;"></a-entity>
+
+    <a-entity static-body geometry="primitive: box; depth: 1; height: 14; width: 160" position="0 6.5 30.5" rotation="0 0 0" material="
+src: url(assets/Bricks051_2K_Color.jpg); repeat: 18 3;"></a-entity>
+-->
+
+
+        <!-- Candles -->
+        <a-entity geometry="primitive: cylinder; radius: 0.09; height: 0.42" position="0 0.47 -0.5" rotation="0 90 0" material="side: double;
+src: url(assets/candle.jpg); repeat: 2 1;">
+            <a-entity geometry="primitive: plane; height: 0.2; width: 0.1" position="0 0.31 0" rotation="0 0 0" material="shader: flat; side: double; transparent: true;
+src: url(assets/fire.png)">
+                <a-animation attribute="position" to="0 0.35 0" easing="linear" repeat="indefinite" dur="350"></a-animation>
+            </a-entity>
+            <a-entity geometry="primitive: plane; height: 0.2; width: 0.1" position="0 0.31 0" rotation="0 90 0" material="shader: flat; side: double; transparent: true;
+src: url(assets/fire.png)">
+                <a-animation attribute="position" to="0 0.35 0" easing="linear" repeat="indefinite" dur="450"></a-animation>
+            </a-entity>
+        </a-entity>
+
+        <a-entity geometry="primitive: cylinder; radius: 0.09; height: 0.42" position="0 0.47 0" material="side: double;
+src: url(assets/candle.jpg); repeat: 2 1;">
+            <a-entity geometry="primitive: plane; height: 0.2; width: 0.1" position="0 0.31 0" rotation="0 0 0" material="shader: flat; side: double; transparent: true;
+src: url(assets/fire.png)">
+                <a-animation attribute="position" to="0 0.35 0" easing="linear" repeat="indefinite" dur="375"></a-animation>
+            </a-entity>
+            <a-entity geometry="primitive: plane; height: 0.2; width: 0.1" position="0 0.31 0" rotation="0 90 0" material="shader: flat; side: double; transparent: true;
+src: url(assets/fire.png)">
+                <a-animation attribute="position" to="0 0.35 0" easing="linear" repeat="indefinite" dur="425"></a-animation>
+            </a-entity>
+        </a-entity>
+
+        <a-entity geometry="primitive: cylinder; radius: 0.09; height: 0.42; " position="0 0.47 0.5" rotation="0 200 0" material="side: double;
+src: url(assets/candle.jpg); repeat: 2 1;">
+            <a-entity geometry="primitive: plane; height: 0.2; width: 0.1" position="0 0.31 0" rotation="0 0 0" material="shader: flat; side: double; transparent: true;
+src: url(assets/fire.png)">
+                <a-animation attribute="position" to="0 0.35 0" easing="linear" repeat="indefinite" dur="400"></a-animation>
+            </a-entity>
+            <a-entity geometry="primitive: plane; height: 0.2; width: 0.1" position="0 0.31 0" rotation="0 90 0" material="shader: flat; side: double; transparent: true;
+src: url(assets/fire.png)">
+                <a-animation attribute="position" to="0 0.35 0" easing="linear" repeat="indefinite" dur="500"></a-animation>
+            </a-entity>
+        </a-entity>
+    </a-entity>
+</a-scene>
+
+</body>
+</html>
